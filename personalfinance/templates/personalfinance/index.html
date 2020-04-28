@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Expenses</title>
+
+</head>
+<body>
+
+<h2> List of all the expenses</h2>
+
+ {% if expenses %}
+ 	<table>
+ 		<thead>
+ 			<th>Date</th>
+ 			<th>Name</th>
+ 			<th>Amount</th>
+ 			<th>Associated Person</th>
+ 			<th>Tags</th>
+ 		</thead>
+
+ 	{% for exp in expenses_list %}
+ 	<tr>
+ 		<td>{{exp.Date}}</td>
+ 		<td>{{exp.name}}</td>
+ 		<td>{{exp.amount}}</td>
+ 		<td>{{exp.associatedPerson }}</td>
+ 		<td>{{exp.tags }}</td>
+ 	</tr>
+ 	{% endfor %}
+ 	</table>
+
+ {% else %}
+ 	<p>Nothing found!</p>
+ {% endif %}
+
+</body>
+</html>
